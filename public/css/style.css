@@ -1,7 +1,7 @@
 @import url("./partials.css");
 
 body {
-    background-color: #FFCF9D;
+    background-color: #E8F9FF;
     font-family: "Roboto", serif;
     text-align: center;
 
@@ -16,7 +16,51 @@ body {
 
 /*Home*/
 
+.container {
+    height: 80vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+
 .titulo {
     width: 100%;
     padding: 20px;
+}
+
+.descricao {
+    margin: 20px;
+    padding: 20px;
+}
+
+.botoes {
+    margin: 20px;
+    padding: 20px;
+}
+
+.btn {
+    background-color: #3674B5;
+    font-family: inherit;
+
+    border: 0;
+    border-radius: 6px;
+    cursor: pointer;
+    padding: 8px 35px;
+    margin: 5px;
+    font-size: 15px;
+}
+
+.btn a {
+    color: #E8F9FF;
+    text-decoration: none;
+}
+
+/*Tela Foto*/
+
+.tirar-foto {
+    width: 20%;
+    background-color: rgb(57, 57, 136);
 }
