@@ -1,0 +1,17 @@
+{
+  "name": "web-autocheck2",
+  "version": "1.0.0",
+  "description": "Um sistema para cadastro, consulta e gerenciamento de veículos, desenvolvido pela DTI para a UNIR.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "giulia correa",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^4.21.2"
+  },
+  "keywords": []
+}
