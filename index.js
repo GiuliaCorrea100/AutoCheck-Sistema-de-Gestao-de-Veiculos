@@ -1,6 +1,5 @@
 import express from "express";
 const app = express();
-
 const port = 3000;
 
 app.listen(port, () => {
@@ -9,4 +8,8 @@ app.listen(port, () => {
 
 app.get("/", (req, res) => {
     res.render("home.ejs");
+});
+
+app.get("/telaFoto.ejs", (req, res) => {
+    res.render("telaFoto.ejs");
 });
