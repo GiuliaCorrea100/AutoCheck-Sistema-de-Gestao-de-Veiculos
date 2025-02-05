@@ -1,1 +1,22 @@
-@import url('./partials.css');
+@import url("./partials.css");
+
+body {
+    background-color: #FFCF9D;
+    font-family: "Roboto", serif;
+    text-align: center;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    margin: 0;
+    padding: 0;
+}
+
+/*Home*/
+
+.titulo {
+    width: 100%;
+    padding: 20px;
+}
