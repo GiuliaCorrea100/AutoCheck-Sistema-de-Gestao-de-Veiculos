@@ -2,7 +2,6 @@
 
 body {
     margin: 0;
-    padding: 0;
 }
 
 .header {
@@ -13,18 +12,13 @@ body {
     flex-direction: column;
 
     width: 100%;
-    height: 20vh;
+    height: auto;
     padding: 20px;
 
     position: relative;
 }
 
-.header a {
-    float: left;
-}
-
 .img-logo {
-    width: 100%;
     max-width: 250px;
     height: auto;
 }
@@ -32,6 +26,8 @@ body {
 .title {
     color: aliceblue;
     font-size: 40px;
+
+    margin: 5px;
 }
 
 /*Footer*/
