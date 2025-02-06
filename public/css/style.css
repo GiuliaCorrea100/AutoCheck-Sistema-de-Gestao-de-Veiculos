@@ -1,5 +1,13 @@
 @import url("./partials.css");
 
+/*geral*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     background-color: #E8F9FF;
     font-family: "Roboto", serif;
@@ -9,9 +17,6 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-
-    margin: 0;
-    padding: 0;
 }
 
 /*Home*/
@@ -58,9 +63,19 @@ body {
     text-decoration: none;
 }
 
+.btn:hover {
+    background-color: #3E5879;
+}
+
+.logo-home {
+    width: 30%;
+}
+
 /*Tela Foto*/
 
 .tirar-foto {
     width: 20%;
     background-color: rgb(57, 57, 136);
 }
+
+/*Media querys*/
