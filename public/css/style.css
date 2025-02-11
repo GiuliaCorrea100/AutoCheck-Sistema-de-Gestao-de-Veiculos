@@ -8,15 +8,16 @@
     box-sizing: border-box;
 }
 
-body {
+html, body {
     background-color: #E8F9FF;
     font-family: "Roboto", serif;
     text-align: center;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+    overflow: hidden;
+
+    height: auto; /* Permite que a pagina cresça conforme necessario */
+    min-height: 100vh; /* Garante um minimo de altura total */
+    overflow-y: auto; /* Ativa rolagem se necessário */
 }
 
 /*Home*/
@@ -31,13 +32,8 @@ body {
     position: relative;
 }
 
-.titulo h3{
-    margin-top: 10px;
-    font-size: 35px;
-}
-
 .logo-home {
-    width: 250px;
+    width: 450px;
 }
 
 .descricao {
@@ -45,30 +41,30 @@ body {
     font-size: 20px;
     border-radius: 10px;
 
-    padding: 10px;
-    margin: 5px;
+    padding: 20px;
+    margin: 15px;
 }
 
-.botoes {
-    margin: 30px;
-    padding: 30px;
+.botoes-cima {
+    display: flex;
 }
+
+
 
 .btn {
+    display: inline-block;
     background-color: #3674B5;
     font-family: inherit;
+    color: #E8F9FF;
+    text-decoration: none;
+    text-align: center;
 
     border: 0;
     border-radius: 6px;
     cursor: pointer;
-    padding: 10px 55px;
-    margin: 10px;
-    font-size: 20px;
-}
-
-.btn a {
-    color: #E8F9FF;
-    text-decoration: none;
+    padding: 15px 60px;
+    margin: 15px;
+    font-size: 25px;
 }
 
 .btn:hover {
@@ -77,12 +73,40 @@ body {
 
 /*Tela Foto*/
 
-.tirar-foto {
-    width: 20%;
-    background-color: rgb(57, 57, 136);
-}
 
 /*Media querys*/
 /*HOME*/
+@media (max-width: 600px) {
+    
+    .descricao {
+        font-size: 25px;
+        border-radius: 10px;
+    
+        padding: 15px;
+        margin: 10px;
+    }
 
+    .botao-TL {
+        margin: 15px;
+        padding: 15px;
+        align-items: center;
+        width: 100%;
+    }
+
+    .btn {
+        display: inline-block;
+        background-color: #3674B5;
+        font-family: inherit;
+        color: #E8F9FF;
+        text-decoration: none;
+        text-align: center;
+    
+        border: 0;
+        border-radius: 6px;
+        cursor: pointer;
+        padding: 20px 70px;
+        margin: 20px;
+        font-size: 30px;
+    }
+}
 
