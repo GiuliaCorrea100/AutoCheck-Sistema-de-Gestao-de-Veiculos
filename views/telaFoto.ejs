@@ -13,32 +13,26 @@
 
 </head>
 <body>
-    <%- include("partials/header") %>
+    <div class="container">
+        <%- include("partials/header") %>
 
-    <div class="botoes">
-        <button class="btn"><a href="home.ejs">VOLTAR</a></button>
-        <button class="btn"><a href="#">LISTA DE VEICULOS</a></button>
+        <div class="botoes-cima">
+            <a href="home.ejs" class="btn">VOLTAR</a>
+            <a href="#" class="btn">LISTA DE VEICULOS</a>
+        </div>
+
+        <div class="botao-TL">
+            <a href="#" class="btn">CADASTRO</a>
+            <a href="#" class="btn">DETECÇÃO</a>
+        </div>
+
+        <div class="numero-placa">
+            <p>Placa: ...</p>
+        </div>
+
+        <div class="botao-TL">
+            <a href="#" class="btn">CONSULTAR VEICULO</a>
+        </div>
     </div>
-
-    <div class="tirar-foto">
-        <button class="btn"><h1>TIRAR FOTO</h1></button>
-        <p>aqui vai a funcionalidade de escaniar a placa</p>
-    </div>
-
-    <div class="botoes">
-        <button class="btn"><a href="#">CADASTRO</a></button>
-        <button class="btn"><a href="#">DETECÇÃO</a></button>
-    </div>
-
-    <div class="numero-placa">
-        <p>Aqui vai provavelmente um DOM em js para mostrar a placa na tela</p>
-        <br>
-        <p>Placa: ...</p>
-    </div>
-
-    <div class="botoes">
-        <button class="btn"><a href="#">CONSULTAR VEICULO</a></button>
-    </div>
-
 </body>
 </html>
