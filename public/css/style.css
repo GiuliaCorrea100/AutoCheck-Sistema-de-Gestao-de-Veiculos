@@ -49,7 +49,9 @@ html, body {
     display: flex;
 }
 
-
+.tirarFoto {
+    margin: 15px;
+}
 
 .btn {
     display: inline-block;
@@ -94,19 +96,11 @@ html, body {
     }
 
     .btn {
-        display: inline-block;
-        background-color: #3674B5;
-        font-family: inherit;
-        color: #E8F9FF;
-        text-decoration: none;
         text-align: center;
-    
-        border: 0;
-        border-radius: 6px;
-        cursor: pointer;
-        padding: 20px 70px;
-        margin: 20px;
-        font-size: 30px;
+        padding: 10px;
+        margin: 10px;
+        font-size: 20px;
+        width: 100%;
     }
 }
 
