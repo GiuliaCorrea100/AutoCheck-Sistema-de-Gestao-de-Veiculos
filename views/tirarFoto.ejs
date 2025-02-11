@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leitura de Placas</title>
+    <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin: 20px; }
+        #video { width: 100%; max-width: 400px; }
+        #canvas { display: none; }
+        #foto { width: 100%; max-width: 400px; margin-top: 10px; }
+        .btn { padding: 10px 15px; margin: 10px; cursor: pointer; border: none; background: #007bff; color: white; }
+        .btn:hover { background: #0056b3; }
+        .input { width: 90%; padding: 10px; font-size: 16px; }
+    </style>
+</head>
+<body>
+    <h2>Capturar ou Enviar Imagem da Placa</h2>
+
+    <!-- Câmera ao vivo -->
+    <video id="video" autoplay></video>
+    <button class="btn" onclick="tirarFoto()">📸 Capturar Foto</button>
+    <canvas id="canvas"></canvas>
+    <img id="foto" alt="Foto capturada">
+
+    <hr>
+
+    <!-- Upload de imagem -->
+    <label for="uploadPlaca">Upload de imagem da placa:</label>
+    <input type="file" id="uploadPlaca" accept="image/*" title="Selecione uma imagem da placa">
+    <button class="btn" onclick="processarImagem()">📄 Ler Placa</button>
+
+    <hr>
+
+    <p><strong>Placa Reconhecida:</strong> <span id="resultado"></span></p>
+    
+    <!-- Campo para correção manual -->
+    <div>
+        <label for="placaCorrigida">Corrigir placa reconhecida (se necessário):</label><br>
+        <input type="text" id="placaCorrigida" class="input" placeholder="Digite a placa corrigida">
+        <button class="btn" onclick="atualizarPlaca()">Atualizar</button>
+    </div>
+
+    <script>
+        // Ativar câmera ao carregar a página
+        const video = document.getElementById('video');
+        navigator.mediaDevices.getUserMedia({ video: true })
+            .then(stream => video.srcObject = stream)
+            .catch(err => console.error("Erro ao acessar a câmera:", err));
+
+        // Captura uma foto da câmera
+        function tirarFoto() {
+            const canvas = document.getElementById('canvas');
+            const foto = document.getElementById('foto');
+            const ctx = canvas.getContext('2d');
+
+            canvas.width = video.videoWidth;
+            canvas.height = video.videoHeight;
+            ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+            foto.src = canvas.toDataURL("image/png"); // Exibir a foto tirada
+            processarOCR(foto.src); // Processar a foto tirada
+        }
+
+        // Processar imagem de upload
+        function processarImagem() {
+            const input = document.getElementById("uploadPlaca");
+            if (input.files.length === 0) {
+                alert("Selecione uma imagem da placa.");
+                return;
+            }
+
+            const leitor = new FileReader();
+            leitor.onload = function (e) {
+                document.getElementById("foto").src = e.target.result; // Exibir imagem carregada
+                processarOCR(e.target.result); // Processar OCR
+            };
+            leitor.readAsDataURL(input.files[0]);
+        }
+
+        // Processar OCR com Tesseract.js
+        function processarOCR(imagem) {
+            Tesseract.recognize(
+                imagem,
+                'eng', // Pode adicionar 'por' ou customizar para português, se necessário
+                {
+                    logger: m => console.log(m) // Log do progresso
+                }
+            ).then(({ data: { text } }) => {
+                document.getElementById("resultado").textContent = text.trim();
+                document.getElementById("placaCorrigida").value = text.trim(); // Carregar o texto detectado para o campo de correção
+            });
+        }
+
+        // Atualizar o texto com a correção manual
+        function atualizarPlaca() {
+            const placaCorrigida = document.getElementById('placaCorrigida').value;
+            document.getElementById("resultado").textContent = placaCorrigida; // Exibir a placa corrigida
+        }
+    </script>
+</body>
+</html>

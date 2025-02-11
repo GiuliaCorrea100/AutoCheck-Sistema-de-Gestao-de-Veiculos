@@ -17,3 +17,6 @@ app.get("/telaFoto.ejs", (req, res) => {
     res.render("telaFoto.ejs");
 });
 
+app.get("/tirarFoto.ejs", (req, res) => {
+    res.render("tirarFoto.ejs");
+});
