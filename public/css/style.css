@@ -53,10 +53,11 @@ html, body {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    width: 100%;
 }
 
 .tirarFoto {
-    margin: 15px;
+    margin: 10px;
 }
 
 .btn {
@@ -67,16 +68,29 @@ html, body {
     text-decoration: none;
     text-align: center;
 
-    border: 0;
     border-radius: 6px;
     cursor: pointer;
-    padding: 15px 60px;
+    padding: 15px 40px;
     margin: 15px;
-    font-size: 25px;
+    font-size: clamp(18px, 2vw, 25px);
 }
 
 .btn:hover {
     background-color: #3E5879;
+}
+
+.botao-TL {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+}
+
+.numero-placa {
+    font-size: clamp(18px, 2vw, 22px);
+    font-weight: bold;
+    margin: 20px 0;
 }
 
 /*Tela Foto*/
@@ -87,14 +101,14 @@ html, body {
 @media (max-width: 600px) {
     
     .descricao {
-        font-size: 25px;
+        font-size: 20px;
         border-radius: 10px;
     
         padding: 15px;
         margin: 10px;
     }
 
-    .botao-TL {
+    .botao-TL, .botoes-cima {
         margin: 15px;
         padding: 15px;
         align-items: center;
@@ -103,7 +117,7 @@ html, body {
 
     .btn {
         text-align: center;
-        padding: 10px;
+        padding: 12px;
         margin: 10px;
         font-size: 20px;
         width: 100%;
