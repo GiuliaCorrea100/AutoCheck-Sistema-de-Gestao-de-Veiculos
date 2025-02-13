@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leitor de QR Code</title>
+    <script src="https://unpkg.com/html5-qrcode"></script>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin: 20px; }
+        #reader { width: 100%; max-width: 400px; margin: auto; }
+        .btn { padding: 10px 15px; margin: 10px; cursor: pointer; border: none; background: #007bff; color: white; }
+        .btn:hover { background: #0056b3; }
+    </style>
+</head>
+<body>
+    <h2>Leitor de QR Code</h2>
+
+    <!-- Câmera para leitura do QR Code -->
+    <div id="reader"></div>
+    <button class="btn" onclick="iniciarLeitura()">📸 Iniciar Leitura</button>
+    <button class="btn" onclick="pararLeitura()">⏹ Parar Leitura</button>
+
+    <hr>
+
+    <p><strong>Conteúdo do QR Code:</strong> <span id="resultado"></span></p>
+
+    <script>
+        let scanner;
+
+        function iniciarLeitura() {
+            scanner = new Html5Qrcode("reader");
+            scanner.start(
+                { facingMode: "environment" }, // usa a camera traseira do celular
+                { fps: 10, qrbox: 250 },
+                (decodedText) => {
+                    document.getElementById("resultado").textContent = decodedText;
+                    pararLeitura(); // Para automaticamente depois que le o qrcode 
+                },
+                (error) => {
+                    console.log(error);
+                }
+            );
+        }
+
+        function pararLeitura() {
+            if (scanner) {
+                scanner.stop();
+            }
+        }
+    </script>
+</body>
+</html>
